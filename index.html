@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Web Pribadi John Louis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+    <header class="glass-effect">
+        <nav>
+            <ul>
+                <li><a href="#beranda" class="nav-link"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="#tentang" class="nav-link"><i class="fas fa-user"></i> Tentang</a></li>
+                <li><a href="#pendidikan" class="nav-link"><i class="fas fa-graduation-cap"></i> Pendidikan</a></li>
+                <li><a href="#diary" class="nav-link"><i class="fas fa-book"></i> Diary</a></li>
+                <li><a href="#kontak" class="nav-link"><i class="fas fa-envelope"></i> Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="beranda" class="hero parallax-effect">
+            <div class="hero-content">
+                <img src="20140514_120520.jpg" alt="Foto Profil John Louis" class="profile-img animate-pop">
+                <h1 class="animate-text">Selamat Datang di Halaman Web Pribadi John Louis</h1>
+                <p class="tagline animate-text">Seorang pelajar yang bersemangat tentang teknologi</p>
+                <a href="#tentang" class="cta-button animate-pop">Kenali Saya Lebih Jauh</a>
+            </div>
+        </section>
+
+        <section id="tentang" class="glass-effect">
+            <h2><i class="fas fa-user"></i> Tentang Saya</h2>
+            <p class="animate-text">Saya adalah seorang pelajar yang berminat besar dalam Teknologi. Saat ini, saya sedang aktif belajar dan mengeksplorasi berbagai aspek teknologi modern.</p>
+            <div class="skills">
+                <span class="skill-tag animate-pop">HTML</span>
+                <span class="skill-tag animate-pop">CSS</span>
+                <span class="skill-tag animate-pop">JavaScript</span>
+                <span class="skill-tag animate-pop">Teknologi</span>
+            </div>
+        </section>
+
+        <section id="pendidikan" class="glass-effect">
+            <h2><i class="fas fa-graduation-cap"></i> Riwayat Pendidikan</h2>
+            <ul class="timeline">
+                <li class="timeline-item animate-slide-right">
+                    <span class="year">2013 - 2019</span>
+                    <h3>SD Kinarya Grasia</h3>
+                    <p>Pendidikan dasar</p>
+                </li>
+                <li class="timeline-item animate-slide-right">
+                    <span class="year">2019 - 2022</span>
+                    <h3>SMP Maitreya Wira</h3>
+                    <p>Pendidikan menengah pertama</p>
+                </li>
+                <li class="timeline-item animate-slide-right">
+                    <span class="year">2022 - 2025</span>
+                    <h3>SMA Santa Maria</h3>
+                    <p>Pendidikan menengah atas</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="diary" class="glass-effect">
+            <h2><i class="fas fa-book"></i> Diary Saya</h2>
+            <div class="diary-entries">
+                <article class="diary-entry animate-fade-in">
+                    <h3>22 September 2024</h3>
+                    <p>Hari ini saya mulai belajar HTML dan CSS. Sangat menyenangkan bisa membuat halaman web sendiri! dan 
+                        juga belajar kimia tentang bentuk ikatan.</p>
+                    <a href="#" class="read-more">Baca selengkapnya</a>
+                </article>
+                <!-- Tambahkan entri diary lainnya di sini -->
+            </div>
+        </section>
+
+        <section id="kontak" class="glass-effect">
+            <h2><i class="fas fa-envelope"></i> Kontak</h2>
+            <p><i class="fas fa-envelope"></i> Email: happytoys.oppo@gmail.com</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/Huang xie" target="_blank" class="social-icon animate-pop"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.tiktok.com/@huangxie2" target="_blank" class="social-icon animate-pop"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/happy.toys_tpi" target="_blank" class="social-icon animate-pop"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/6282289029485" target="_blank" class="social-icon animate-pop"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-effect">
+        <p>&copy; 2024 John Louis. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        // Animasi scroll smooth
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animasi elemen saat scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-text, .animate-pop, .animate-slide-right, .animate-fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                if (elementTop < window.innerHeight && elementBottom > 0) {
+                    element.classList.add('animate');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Efek parallax untuk hero section
+        window.addEventListener('scroll', () => {
+            const parallax = document.querySelector('.parallax-effect');
+            let scrollPosition = window.pageYOffset;
+            parallax.style.backgroundPositionY = scrollPosition * 0.7 + 'px';
+        });
+    </script>
+</body>
+</html>
